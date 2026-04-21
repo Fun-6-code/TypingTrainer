@@ -1,0 +1,131 @@
+﻿<Window x:Class="TypingTrainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Typing Trainer" 
+        Height="600" 
+        Width="900"
+        WindowStartupLocation="CenterScreen"
+        Background="#F0F2F5">
+
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" 
+                   Text="Тренажер слепой печати" 
+                   FontSize="28" 
+                   FontWeight="Bold"
+                   Foreground="#333333"
+                   HorizontalAlignment="Center"
+                   Margin="0,0,0,20"/>
+
+        <Border Grid.Row="1" 
+        Background="#667eea" 
+        CornerRadius="10"
+        Padding="20"
+        Margin="0,0,0,20">
+
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                    <TextBlock Text="Ошибки:" 
+                       FontSize="14" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Opacity="0.9"/>
+                    <TextBlock x:Name="ErrorsText" 
+                       Text="0" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                    <TextBlock Text="Скорость:" 
+                       FontSize="14" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Opacity="0.9"/>
+                    <TextBlock x:Name="SpeedText" 
+                       Text="0 з/мин" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Column="2" HorizontalAlignment="Center">
+                    <TextBlock Text="Точность:" 
+                       FontSize="14" 
+                       Foreground="White" 
+                       HorizontalAlignment="Center"
+                       Opacity="0.9"/>
+                    <TextBlock x:Name="AccuracyText" 
+                       Text="100%" 
+                       FontSize="32" 
+                       FontWeight="Bold" 
+                       Foreground="White"
+                       HorizontalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2" 
+                Background="White" 
+                CornerRadius="10"
+                Padding="20"
+                Margin="0,0,0,20">
+
+            <TextBlock x:Name="TextToType" 
+                       Text="Нажмите кнопку 'Начать тренировку', чтобы начать..." 
+                       FontSize="24"
+                       Foreground="#666666"
+                       TextWrapping="Wrap"
+                       VerticalAlignment="Center"
+                       HorizontalAlignment="Center"/>
+        </Border>
+
+        <StackPanel Grid.Row="3" 
+            Orientation="Horizontal" 
+            HorizontalAlignment="Center">
+
+            <Button x:Name="StartButton"
+            Content="Начать тренировку"
+            FontSize="18"
+            Padding="20,10"
+            Margin="0,0,10,0"
+            HorizontalAlignment="Center"
+            Background="#667eea"
+            Foreground="White"
+            BorderThickness="0"
+            Cursor="Hand"
+            Click="StartButton_Click"
+            IsDefault="False"
+            Focusable="False"/>
+
+            <Button x:Name="SaveButton"
+            Content="💾 Сохранить результаты"
+            FontSize="18"
+            Padding="20,10"
+            HorizontalAlignment="Center"
+            Background="#28a745"
+            Foreground="White"
+            BorderThickness="0"
+            Cursor="Hand"
+            Click="SaveButton_Click"
+            IsDefault="False"
+            Focusable="False"
+            Visibility="Collapsed"/>
+        </StackPanel>
+    </Grid>
+</Window>
