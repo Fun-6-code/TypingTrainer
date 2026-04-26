@@ -1,0 +1,253 @@
+﻿<Window x:Class="TypingTrainer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Тренажер слепой печати" 
+        Height="680" 
+        Width="950"
+        WindowStartupLocation="CenterScreen"
+        Background="#F4F7FB">
+
+    <Window.Resources>
+        <Style x:Key="PrimaryButton" TargetType="Button">
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontWeight" Value="SemiBold"/>
+            <Setter Property="Padding" Value="30,15"/>
+            <Setter Property="Background" Value="#4A6CF7"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}" CornerRadius="12" Padding="{TemplateBinding Padding}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#3B5BE0"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="OutlineButton" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="25,12"/>
+            <Setter Property="Background" Value="#E5E7EB"/>
+            <Setter Property="Foreground" Value="#374151"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#D1D5DB"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="WarningButton" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="25,12"/>
+            <Setter Property="Background" Value="#F59E0B"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#D97706"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style x:Key="SuccessButton" TargetType="Button">
+            <Setter Property="FontSize" Value="16"/>
+            <Setter Property="Padding" Value="25,12"/>
+            <Setter Property="Background" Value="#10B981"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Cursor" Value="Hand"/>
+            <Style.Triggers>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="Background" Value="#059669"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#F4F7FB" Offset="0"/>
+                <GradientStop Color="#E8EEF7" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <Grid Margin="30">
+            <Grid x:Name="MenuGrid">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Grid.Row="0" HorizontalAlignment="Center" Margin="0,40,0,0">
+                    <TextBlock Text="Тренажер слепой печати" 
+                               FontSize="36" FontWeight="Bold" Foreground="#1E293B" 
+                               HorizontalAlignment="Center"/>
+                    <Rectangle Height="3" Width="200" Fill="#4A6CF7" RadiusX="2" RadiusY="2" 
+                               Margin="0,10,0,0" HorizontalAlignment="Center"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+
+                        <Border Background="White" CornerRadius="20" Padding="0" Margin="0,0,30,0" Width="340" Height="380">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity="0.1" Color="#4A6CF7"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" CornerRadius="20,20,0,0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#4A6CF7" Offset="0"/>
+                                            <GradientStop Color="#6366F1" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <!-- картинка -->
+                                        <Border Width="60" Height="60" Background="White" CornerRadius="12" Opacity="0.2"/>
+                                        <TextBlock Text="Режим на время" FontSize="22" FontWeight="Bold" 
+                                                   Foreground="White" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="30,25,30,30">
+                                    <TextBlock Text="Напечатайте текст за 60 секунд" 
+                                               FontSize="15" Foreground="#64748B" FontWeight="Medium"
+                                               TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,12"/>
+                                    <TextBlock Text="Тренируйте скорость и точность печати в ограниченное время" 
+                                               FontSize="13" Foreground="#94A3B8" 
+                                               TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,25"/>
+                                    <Button x:Name="BtnModeTimed" Content="Начать тренировку" 
+                                            Style="{StaticResource PrimaryButton}" 
+                                            Click="BtnModeTimed_Click" HorizontalAlignment="Stretch"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                        <Border Background="White" CornerRadius="20" Padding="0" Width="340" Height="380">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="20" ShadowDepth="0" Opacity="0.1" Color="#10B981"/>
+                            </Border.Effect>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="140"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <Border Grid.Row="0" CornerRadius="20,20,0,0">
+                                    <Border.Background>
+                                        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                                            <GradientStop Color="#10B981" Offset="0"/>
+                                            <GradientStop Color="#34D399" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Border.Background>
+                                    <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                        <!-- картинка 2 -->
+                                        <Border Width="60" Height="60" Background="White" CornerRadius="12" Opacity="0.2"/>
+                                        <TextBlock Text="Бесконечный режим" FontSize="22" FontWeight="Bold" 
+                                                   Foreground="White" HorizontalAlignment="Center" Margin="0,15,0,0"/>
+                                    </StackPanel>
+                                </Border>
+
+                                <StackPanel Grid.Row="1" HorizontalAlignment="Center" Margin="30,25,30,30">
+                                    <TextBlock Text="Печатайте без ограничений" 
+                                               FontSize="15" Foreground="#64748B" FontWeight="Medium"
+                                               TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,12"/>
+                                    <TextBlock Text="Развивайте выносливость и ритм в неограниченной сессии" 
+                                               FontSize="13" Foreground="#94A3B8" 
+                                               TextWrapping="Wrap" TextAlignment="Center" Margin="0,0,0,25"/>
+                                    <Button x:Name="BtnModeInfinite" Content="Начать тренировку" 
+                                            Style="{StaticResource PrimaryButton}" 
+                                            Click="BtnModeInfinite_Click" HorizontalAlignment="Stretch"/>
+                                </StackPanel>
+                            </Grid>
+                        </Border>
+
+                    </StackPanel>
+                </StackPanel>
+            </Grid>
+
+            <Grid x:Name="GameGrid" Visibility="Collapsed">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <DockPanel Grid.Row="0" Margin="0,0,0,20">
+                    <TextBlock Text="Тренировка" FontSize="28" FontWeight="Bold" Foreground="#1E293B"/>
+                    <TextBlock x:Name="TimerText" Text="01:00" FontSize="24" FontWeight="Bold" 
+                               Foreground="#EF4444" HorizontalAlignment="Right" DockPanel.Dock="Right"/>
+                </DockPanel>
+
+                <Border Grid.Row="1" Background="White" CornerRadius="16" Padding="25" Margin="0,0,0,25">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.05"/>
+                    </Border.Effect>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0" HorizontalAlignment="Center">
+                            <TextBlock Text="Ошибки" FontSize="13" Foreground="#64748B" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="ErrorsText" Text="0" FontSize="32" FontWeight="Bold" 
+                                       Foreground="#EF4444" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1" HorizontalAlignment="Center">
+                            <TextBlock Text="Скорость" FontSize="13" Foreground="#64748B" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="SpeedText" Text="0 з/мин" FontSize="32" FontWeight="Bold" 
+                                       Foreground="#4A6CF7" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2" HorizontalAlignment="Center">
+                            <TextBlock Text="Точность" FontSize="13" Foreground="#64748B" HorizontalAlignment="Center"/>
+                            <TextBlock x:Name="AccuracyText" Text="100%" FontSize="32" FontWeight="Bold" 
+                                       Foreground="#10B981" HorizontalAlignment="Center"/>
+                        </StackPanel>
+                    </Grid>
+                </Border>
+
+                <Border Grid.Row="2" Background="White" CornerRadius="16" Padding="25" Margin="0,0,0,25" Height="110">
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="10" ShadowDepth="0" Opacity="0.05"/>
+                    </Border.Effect>
+                    <ScrollViewer x:Name="TextScroll" VerticalScrollBarVisibility="Disabled" 
+                                  HorizontalScrollBarVisibility="Hidden">
+                        <TextBlock x:Name="TextToType" FontSize="26" Foreground="#374151" 
+                                   TextWrapping="NoWrap" VerticalAlignment="Center" LineHeight="40"/>
+                    </ScrollViewer>
+                </Border>
+
+                <Border Grid.Row="3" Background="Transparent"/>
+
+                <StackPanel Grid.Row="4" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,20">
+                    <Button x:Name="BtnBackToMenu" Content="В меню" Style="{StaticResource OutlineButton}" 
+                            Click="BtnBackToMenu_Click"/>
+                    <Button x:Name="BtnFinishSession" Content="Завершить сессию" Style="{StaticResource WarningButton}" 
+                            Click="BtnFinishSession_Click" Visibility="Collapsed" Margin="15,0"/>
+                    <Button x:Name="BtnSaveResults" Content="Сохранить результаты" Style="{StaticResource SuccessButton}" 
+                            Click="BtnSaveResults_Click" Visibility="Collapsed" Margin="15,0,0,0"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+    </Grid>
+</Window>
